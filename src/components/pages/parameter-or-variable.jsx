@@ -1,9 +1,7 @@
 import React, { PropTypes } from "react"
-import { isNil } from "ramda"
 import { Link, locationShape, routerShape } from "react-router"
 
 import * as AppPropTypes from "../../app-prop-types"
-import NotFoundPage from "./not-found"
 import Parameter from "../parameter"
 import Variable from "../variable"
 import { searchInputId } from "./home"
@@ -51,7 +49,7 @@ const ParameterOrVariablePage = React.createClass({
   componentDidMount() {
     this.fetchPageContent(this.props.params.name)
   },
-  handleNotFound(event){
+  handleNotFound(){
     const name = this.props.params.name
     return this.context.router.push({
     query: {q: name, source: '404'},
@@ -61,7 +59,7 @@ const ParameterOrVariablePage = React.createClass({
 
   render() {
     const { searchQuery, searchResults } = this.context
-    const {countryPackageName, countryPackageVersion, location, parameters, params, variables} = this.props
+    const {countryPackageName, countryPackageVersion, parameters, variables} = this.props
     const {parameter, variable} = this.state
     const goBackLocation = {
       pathname: "/",
