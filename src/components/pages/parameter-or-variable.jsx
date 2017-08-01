@@ -72,6 +72,7 @@ const ParameterOrVariablePage = React.createClass({
         <p>Chargement des valeurs…</p>
       )
     }
+
     return (
       <div>
         <Link className="btn btn-default" to={goBackLocation}>

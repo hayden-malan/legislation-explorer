@@ -75,7 +75,7 @@ const HomePage = React.createClass({
     const source = this.state.source
     const {searchQuery, searchResults} = this.context
     const countryPackageName = this.props.countryPackageName
-    const changelogURL = "http://www.github.com/openfisca/openfisca-france/blob/master/CHANGELOG.md"
+    const changelogURL = `http://www.github.com/openfisca/` + `${countryPackageName}` + `/blob/master/CHANGELOG.md`
     return (
       <div>
         {source == "404" &&
@@ -86,7 +86,7 @@ const HomePage = React.createClass({
             <p>" {inputValue} " n'est ni un paramètre ni une variable d'OpenFisca.</p>
             <p>Vérifiez l'orthographe de l'URL. Si ce lien fonctionnait et ne fonctionne plus, vérifiez le <a href={changelogURL}>changelog</a>.</p>
           </div>
-          }   
+          }
         <form onSubmit={this.handleSubmit}>
           <div className="input-group input-group-lg" style={{margin: "2em 0"}}>
             <input
