@@ -42,6 +42,7 @@ const ParameterOrVariablePage = React.createClass({
       )
     } else {
         this.setState({waitingForResponse: false})
+        this.handleNotFound()
     }
   },
   componentWillReceiveProps(nextProps) {
@@ -50,30 +51,28 @@ const ParameterOrVariablePage = React.createClass({
   componentDidMount() {
     this.fetchPageContent(this.props.params.name)
   },
+  handleNotFound(event){
+    const name = this.props.params.name
+    return this.context.router.push({
+    query: {q: name, source: '404'},
+    hash: `#not-found`,
+    })
+  },
+
   render() {
     const { searchQuery, searchResults } = this.context
     const {countryPackageName, countryPackageVersion, location, parameters, params, variables} = this.props
-    const {name} = params
     const {parameter, variable} = this.state
+    const goBackLocation = {
+      pathname: "/",
+      query: {q: searchQuery},
+      hash: `#${searchInputId}`,
+    }
 
     if (this.state.waitingForResponse) {
       return (
         <p>Chargement des valeurs…</p>
       )
-    }
-
-    if (isNil(parameter) && isNil(variable)) {
-      return (
-         this.context.router.push({
-          query: {q: name, source: '404'},
-          hash: `#not-found`,
-            })
-      )
-    }
-    const goBackLocation = {
-      pathname: "/",
-      query: {q: searchQuery},
-      hash: `#${searchInputId}`,
     }
     return (
       <div>

@@ -78,14 +78,14 @@ const HomePage = React.createClass({
     const changelogURL = "http://www.github.com/openfisca/openfisca-france/blob/master/CHANGELOG.md"
     return (
       <div>
-        {source == "404" ?(
+        {source == "404" &&
             <div className="alert alert-info" id="not-found">
             <h4 >
               La page « /{inputValue} » n'existe pas.
             </h4>
             <p>" {inputValue} " n'est ni un paramètre ni une variable d'OpenFisca.</p>
             <p>Vérifiez l'orthographe de l'URL. Si ce lien fonctionnait et ne fonctionne plus, vérifiez le <a href={changelogURL}>changelog</a>.</p>
-          </div>):(console.log(source))
+          </div>
           }   
         <form onSubmit={this.handleSubmit}>
           <div className="input-group input-group-lg" style={{margin: "2em 0"}}>
