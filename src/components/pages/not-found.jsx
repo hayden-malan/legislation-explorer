@@ -28,7 +28,6 @@ const NotFoundPage = React.createClass({
 
   render() {
     const {pathname} = this.props.location
-    const message = this.props.message || `La page « ${pathname} » n'existe pas.`
     const countryPackageName = this.props.countryPackageName
     const changelogURL = `http://www.github.com/openfisca/${countryPackageName}/blob/master/CHANGELOG.md`
     return (
