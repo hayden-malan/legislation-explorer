@@ -38,7 +38,7 @@ const HomePage = React.createClass({
   handleClearSearchClicked() {
     const searchQuery = ""
     this.setState({inputValue: searchQuery})
-    this.setState({source: "search"})
+    this.setState({is404: false})
     this.context.setSearchQuery(searchQuery)
     this.context.router.push({
       query: {q: searchQuery},
@@ -66,29 +66,29 @@ const HomePage = React.createClass({
     // Check that the new location stays on the Home page, to avoid overwriting searchQuery in App state.
     if (this._isMounted && router.isActive(oldLocation)) {
       const searchQuery = location.query.q || ""
-      const sourceOfQuery = location.query.source || ""
       this.context.setSearchQuery(searchQuery)
       this.setState({inputValue: searchQuery})
-      this.setState({source: sourceOfQuery})
+      this.setState({is404: location.query.is404})
     }
   },
+
   render() {
     const inputValue = this.state.inputValue
-    const source = this.state.source
+    const is404 = this.state.is404
     const {searchQuery, searchResults} = this.context
     const countryPackageName = this.props.countryPackageName
     const changelogURL = `https://www.github.com/${config.gitHubProject}/blob/master/CHANGELOG.md`
     return (
       <div>
-        {source == "404" &&
+        {is404 &&
             <div className="alert alert-info" id="not-found">
             <h4 >
               <FormattedMessage id = "pageDoesNotExist" values=
-              {{inputValueRef:`${inputValue}`}}/>
+              {{inputValueRef: inputValue}}/>
             </h4>
             <p>
               <FormattedMessage id = "notParamNotVariable" values=
-              {{inputValueRef:`${inputValue}`}}/>
+              {{inputValueRef: inputValue}}/>
             </p>
             <p>
               <FormattedMessage id = "checkChangelog" values=
