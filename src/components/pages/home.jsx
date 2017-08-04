@@ -35,24 +35,21 @@ const HomePage = React.createClass({
   getInitialState() {
     return {inputValue: ""}
   },
-  handleClearSearchClicked() {
-    const searchQuery = ""
-    this.setState({inputValue: searchQuery})
-    this.setState({is404: false})
-    this.context.setSearchQuery(searchQuery)
-    this.context.router.push({
-      query: {q: searchQuery},
-      hash: `#${searchInputId}`,
-    })
-  },
 
   locationHasChanged(location) {
     const {router} = this.context
     const oldLocation = this.props.location
     // Check that the new location stays on the Home page, to avoid overwriting searchQuery in App state.
-    if (this._isMounted && router.isActive(oldLocation)) {
-      const searchQuery = location.query.q || ""
-      this.context.setSearchQuery(searchQuery)
+    if (this._isMounted) {
+      const searchQuery = ""
+      if (location.query.q || !location.query.is404) {
+        const searchQuery = location.query.q
+      }
+
+      if(searchQuery){
+        console.log("it passed")
+        this.context.setSearchQuery(searchQuery)
+      }
       this.setState({inputValue: searchQuery})
       this.setState({is404: location.query.is404})
     }
@@ -107,6 +104,7 @@ const SearchResults = React.createClass({
     return nextProps.searchQuery !== this.props.searchQuery
   },
   render() {
+    console.log(this.props.searchQuery)
     const {items} = this.props
     return (
       <List items={items} type="unstyled">
