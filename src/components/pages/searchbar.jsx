@@ -2,6 +2,8 @@ import { Link, routerShape } from "react-router"
 import React, {PropTypes} from "react"
 import {FormattedMessage} from "react-intl"
 
+import { searchInputId } from "./home"
+
 const SearchBarComponent = React.createClass({
   contextTypes: {
     router: routerShape.isRequired,
@@ -33,7 +35,7 @@ const SearchBarComponent = React.createClass({
           <div className="input-group input-group-lg" style={{margin: "2em 0"}}>
             <input
               className="form-control"
-              id="searchInputId"
+              id={searchInputId}
               placeholder="smic, salaire net…"
               type="text"
               onChange={this.handleInputChange}
