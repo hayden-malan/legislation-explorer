@@ -47,7 +47,7 @@ const HomePage = React.createClass({
   },
   handleInputChange(event) {
     this.setState({inputValue: event.target.value})
-    this.setState({source: "search"})
+    this.setState({is404: false})
     // Use scrollIntoView before pushing searchInputId in the hash, to scroll after the first character is typed.
     this.searchInput.scrollIntoView()
   },
@@ -58,7 +58,7 @@ const HomePage = React.createClass({
       query: {q: this.state.inputValue},
       hash: `#${searchInputId}`,
     })
-    this.setState({source: "search"})
+    this.setState({is404: false})
   },
   locationHasChanged(location) {
     const {router} = this.context
@@ -76,7 +76,6 @@ const HomePage = React.createClass({
     const inputValue = this.state.inputValue
     const is404 = this.state.is404
     const {searchQuery, searchResults} = this.context
-    const countryPackageName = this.props.countryPackageName
     const changelogURL = `https://www.github.com/${config.gitHubProject}/blob/master/CHANGELOG.md`
     return (
       <div>
