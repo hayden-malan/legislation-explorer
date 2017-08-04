@@ -41,9 +41,9 @@ const HomePage = React.createClass({
     const oldLocation = this.props.location
     // Check that the new location stays on the Home page, to avoid overwriting searchQuery in App state.
     if (this._isMounted) {
-      const searchQuery = ""
+      let searchQuery = ""
       if (location.query.q || !location.query.is404) {
-        const searchQuery = location.query.q
+        searchQuery = location.query.q
       }
 
       if(searchQuery){
