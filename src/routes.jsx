@@ -7,13 +7,9 @@ import SwaggerPage from "./components/pages/swagger"
 import NotFoundPage from "./components/pages/not-found"
 import ParameterOrVariablePage from "./components/pages/parameter-or-variable"
 
-// specify basename below if running in a subdirectory or set as "/" if app runs in root
-const appHistory = useRouterHistory(createHistory)({
-  basename: "/tmp"
-});
 
 export default (
-  <Router history={appHistory}>
+  <Router Router basename={'/tmp'}>
     <Route path="/" component={App}>
       <IndexRoute component={HomePage} />
       <Route path="swagger" component={SwaggerPage}/>
