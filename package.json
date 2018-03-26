@@ -2,6 +2,7 @@
   "name": "legislation-explorer",
   "version": "0.0.1",
   "description": "OpenFisca - Legislation Explorer",
+  "homepage": "https://fr.openfisca.com/tmp",
   "scripts": {
     "build": "webpack --config ./webpack.config.prod.babel.js",
     "build:tunisia": "COUNTRY_PRODUCTION_CONFIG=tunisia webpack --config ./webpack.config.prod.babel.js",
