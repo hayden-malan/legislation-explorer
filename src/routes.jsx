@@ -9,7 +9,7 @@ import ParameterOrVariablePage from "./components/pages/parameter-or-variable"
 
 
 export default (
-  <Router Router basename={'/tmp'}>
+  <Router basename={'/tmp'}>
     <Route path="/" component={App}>
       <IndexRoute component={HomePage} />
       <Route path="swagger" component={SwaggerPage}/>
