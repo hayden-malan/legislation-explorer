@@ -10,15 +10,15 @@ import ParameterOrVariablePage from "./components/pages/parameter-or-variable"
 
 export default (
   <Router basename={'/tmp'}>
-    <Route path="/" component={App}>
+    <Route path="`${process.env.PUBLIC_URL}/" component={App}>
       <IndexRoute component={HomePage} />
-      <Route path="swagger" component={SwaggerPage}/>
-      <Route path=":name" component={ParameterOrVariablePage}/>
-      <Route path="parameters">
+      <Route path="`${process.env.PUBLIC_URL}/swagger" component={SwaggerPage}/>
+      <Route path="`${process.env.PUBLIC_URL}/:name" component={ParameterOrVariablePage}/>
+      <Route path="`${process.env.PUBLIC_URL}/parameters">
         <IndexRedirect to="/" />
         <Redirect from=":name" to="/:name" />
       </Route>
-      <Route path="variables">
+      <Route path="`${process.env.PUBLIC_URL}/variables">
         <IndexRedirect to="/" />
         <Redirect from=":name" to="/:name" />
       </Route>
