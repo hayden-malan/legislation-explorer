@@ -13,7 +13,7 @@ const appHistory = useRouterHistory(createHistory)({
 });
 
 export default (
-  <Router history={appHistory} />
+  <Router history={appHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={HomePage} />
       <Route path="swagger" component={SwaggerPage}/>
