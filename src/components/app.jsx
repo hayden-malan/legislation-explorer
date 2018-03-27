@@ -104,7 +104,7 @@ const App = React.createClass({
                           id="api"
                           values={{
                             apiLink:
-                              <Link to="tmp/swagger">
+                              <Link to="/tmp/swagger">
                                 <strong><FormattedMessage id="apiText"/></strong>
                               </Link>
                           }}
