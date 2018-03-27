@@ -56,9 +56,9 @@ function renderHtmlDocument(renderProps, state) {
   const webpackAssets = loadWebpackAssets()
   // Add external CSS copied to the public directory by CopyWebpackPlugin in webpack config.
   const bootstrapCss = process.env.NODE_ENV === "production"
-    ? "/bootstrap/css/bootstrap.min.css"
-    : "/bootstrap/css/bootstrap.css"
-  let externalCss = [bootstrapCss, '/swagger-ui.css', '/github-gist.css', '/tmp/style.css']
+    ? "/tmp/bootstrap/css/bootstrap.min.css"
+    : "/tmp/bootstrap/css/bootstrap.css"
+  let externalCss = [bootstrapCss, '/tmp/swagger-ui.css', '/tmp/github-gist.css', '/tmp/style.css']
   if (process.env.NODE_ENV === "development") {
     externalCss = externalCss.map(
       value => "http://localhost:2031" + value // FIXME: the port should not be hard-coded.
