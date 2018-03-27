@@ -10,10 +10,10 @@ import ParameterOrVariablePage from "./components/pages/parameter-or-variable"
 
 export default (
   <Router basename="/tmp">
-    <Route path="/" component={App}>
+    <Route path="/tmp/" component={App}>
       <IndexRoute component={HomePage} />
       <Route path="/tmp/swagger" component={SwaggerPage}/>
-      <Route path=":name" component={ParameterOrVariablePage}/>
+      <Route path="/tmp/:name" component={ParameterOrVariablePage}/>
       <Route path="parameters">
         <IndexRedirect to="/" />
         <Redirect from=":name" to="/:name" />
