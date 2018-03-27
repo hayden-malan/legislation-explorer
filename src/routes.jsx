@@ -12,7 +12,7 @@ export default (
   <Router basename="/tmp">
     <Route path="/" component={App}>
       <IndexRoute component={HomePage} />
-      <Route path="swagger" component={SwaggerPage}/>
+      <Route path="/tmp/swagger" component={SwaggerPage}/>
       <Route path=":name" component={ParameterOrVariablePage}/>
       <Route path="parameters">
         <IndexRedirect to="/" />
