@@ -7,7 +7,7 @@ import webpack from "webpack"
 import writeAssets from "./src/server/write-assets"
 
 
-const assetsPath = path.join(__dirname, "tmp/public")
+const assetsPath = path.join(__dirname, "public")
 
 module.exports = {
   // devtool: "eval", // Transformed code
