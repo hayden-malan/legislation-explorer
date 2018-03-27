@@ -19,7 +19,7 @@ module.exports = {
   output: {
     path: assetsPath,
     filename: "[name]-[hash].js",
-    publicPath: "/",
+    publicPath: "https://fr.openfisca.org/tmp/",
   },
   target: 'web',
   // yaml-js has a reference to `fs`, this is a workaround
