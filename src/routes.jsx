@@ -16,6 +16,7 @@ export default (
     <Route path="parameters">
       <IndexRedirect to="/" />
       <Redirect from=":name" to="/:name" />
+  <Router basename="/tmp">
     </Route>
     <Route path="variables">
       <IndexRedirect to="/" />
@@ -23,4 +24,5 @@ export default (
     </Route>
     <Route path="*" component={NotFoundPage} />
   </Route>
+  </Router>
 )
