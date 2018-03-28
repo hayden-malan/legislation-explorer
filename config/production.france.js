@@ -13,7 +13,7 @@ const apiBaseUrl = process.env.API_URL || `https://fr.openfisca.org/api/v20`,
     trackErrors: true
   },
   useCommitReferenceFromApi = true,
-  websiteUrl = "https://fr.openfisca.org/",
+  websiteUrl = "https://fr.openfisca.org/tmp/",
   winstonConfig = {
     transports: [
       new (winston.transports.Console)({timestamp: true}),
