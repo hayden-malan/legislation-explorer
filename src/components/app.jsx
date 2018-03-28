@@ -83,7 +83,7 @@ const App = React.createClass({
                           values={{
                             explorerLink:
                               <Link to={{
-                                pathname: '/',
+                                pathname: '',
                                 hash: '#search-input'
                               }}>
                                 <strong><FormattedMessage
