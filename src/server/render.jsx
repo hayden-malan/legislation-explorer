@@ -18,7 +18,15 @@ export default function handleRender(state) {
     console.log(routes)
     console.log('## req.url')
     console.log(req.url)
-    match({routes, location: req.url}, (error, redirectLocation, renderProps) => {
+    let newRoute
+    if (req.url.substring(0,4) == '/tmp'){
+      newRoute = req.url.substring(4, req.url.length)
+    } else { 
+      newRoute = req.url
+    }
+    console.log('## newRoute')
+    console.log(newRoute)
+    match({routes, location: newRoute}, (error, redirectLocation, renderProps) => {
       if (error) {
         res.status(500).send(error.message)
       } else if (redirectLocation) {

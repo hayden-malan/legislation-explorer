@@ -12,8 +12,8 @@ export default (
   <Router basename="/tmp">
     <Route path="/" component={App}>
       <IndexRoute component={HomePage} />
-      <Route path="/tmp/swagger" component={SwaggerPage}/>
-      <Route path="/tmp/:name" component={ParameterOrVariablePage}/>
+      <Route path="swagger" component={SwaggerPage}/>
+      <Route path=":name" component={ParameterOrVariablePage}/>
       <Route path="parameters">
         <IndexRedirect to="/" />
         <Redirect from=":name" to="/:name" />
@@ -22,7 +22,7 @@ export default (
         <IndexRedirect to="/" />
         <Redirect from=":name" to="/:name" />
       </Route>
-      </Route>
-    <Route path="*" component={NotFoundPage} />
+      <Route path="*" component={NotFoundPage} />
+    </Route>
   </Router>
 )
