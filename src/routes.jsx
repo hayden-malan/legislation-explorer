@@ -1,5 +1,6 @@
 import React from "react"
-import {Router, Redirect, Route, IndexRedirect, IndexRoute} from "react-router"
+import {Router, Redirect, Route, IndexRedirect, IndexRoute, browserHistory} from "react-router"
+import { useBasename } from 'history'
 
 import App from "./components/app"
 import HomePage from "./components/pages/home"
@@ -8,8 +9,9 @@ import NotFoundPage from "./components/pages/not-found"
 import ParameterOrVariablePage from "./components/pages/parameter-or-variable"
 
 
+
 export default (
-  <Router basename="/tmp">
+  <Router history={useBasename(() => browserHistory)({ basename: '/tmp/' })}>
     <Route path="/" component={App}>
       <IndexRoute component={HomePage} />
       <Route path="swagger" component={SwaggerPage}/>
